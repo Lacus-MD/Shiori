@@ -21,9 +21,9 @@ final class FinderWatcher {
     /// the user went back to from their real folder (Back must not be undone).
     private var lastShown: String?
     private var wentBack: Set<String> = []
-    /// The real folder Shiori just sent a window to, and the place to
-    /// highlight in the sidebar once it is there.
-    private var arriving: (target: String, name: String)?
+    /// The real folder Shiori just sent a window to, the place to keep
+    /// highlighted in the sidebar meanwhile, and until when.
+    private var arriving: (target: String, name: String, until: ContinuousClock.Instant)?
 
     var isRunning: Bool { observer != nil }
 
@@ -55,15 +55,19 @@ final class FinderWatcher {
         finderPID = finder.processIdentifier
 
         var created: AXObserver?
-        let callback: AXObserverCallback = { _, _, _, refcon in
+        let callback: AXObserverCallback = { _, _, notification, refcon in
             guard let refcon else { return }
             let watcher = Unmanaged<FinderWatcher>.fromOpaque(refcon).takeUnretainedValue()
-            MainActor.assumeIsolated { watcher.windowChanged() }
+            let selection = CFEqual(notification, kAXSelectedRowsChangedNotification as CFString)
+            MainActor.assumeIsolated {
+                if selection { watcher.selectionChanged() } else { watcher.windowChanged() }
+            }
         }
         guard AXObserverCreate(finderPID, callback, &created) == .success, let created else { return }
         let app = AXUIElementCreateApplication(finderPID)
         let refcon = Unmanaged.passUnretained(self).toOpaque()
-        for notification in [kAXTitleChangedNotification, kAXFocusedWindowChangedNotification, kAXWindowCreatedNotification] {
+        for notification in [kAXTitleChangedNotification, kAXFocusedWindowChangedNotification, kAXWindowCreatedNotification,
+                             kAXSelectedRowsChangedNotification] {
             AXObserverAddNotification(created, app, notification as CFString, refcon)
         }
         CFRunLoopAddSource(CFRunLoopGetMain(), AXObserverGetRunLoopSource(created), .defaultMode)
@@ -76,6 +80,20 @@ final class FinderWatcher {
         }
         observer = nil
         finderPID = 0
+    }
+
+    /// Finder clears the sidebar highlight while the window moves on; put it
+    /// back at once, so it does not blink.
+    private func selectionChanged() {
+        guard let arriving else { return }
+        guard ContinuousClock.now < arriving.until else {
+            self.arriving = nil
+            return
+        }
+        // Only when Finder cleared it: a row the user picked is theirs.
+        guard let window = focusedWindow(), let outline = Self.first(in: window, role: kAXOutlineRole),
+              (Self.value(outline, kAXSelectedRowsAttribute) as? [AXUIElement])?.isEmpty ?? true else { return }
+        selectSidebarRow(named: arriving.name)
     }
 
     private func windowChanged() {
@@ -96,16 +114,14 @@ final class FinderWatcher {
         guard let title = frontWindowTitle(), titles.contains(title), let path = FinderBridge.frontWindowPath() else {
             lastShown = nil
             wentBack.removeAll()
+            arriving = nil
             return
         }
         let shown = Self.normalized(path)
         guard let place = places.first(where: { Self.normalized($0.root) == shown }) else {
             wentBack.removeAll()
             lastShown = shown
-            if let arriving, arriving.target == shown {
-                selectSidebarRow(named: arriving.name)
-                self.arriving = nil
-            }
+            if let arriving, arriving.target == shown { selectSidebarRow(named: arriving.name) }
             return
         }
         let target = Self.normalized(place.target.path(percentEncoded: false))
@@ -119,17 +135,15 @@ final class FinderWatcher {
         FinderBridge.retargetFrontWindow(to: place.target)
         lastShown = target
         // Finder drops the sidebar highlight when the window leaves the
-        // place's own folder; put it back once the window has arrived (its
-        // title changes then). A place named like its folder keeps the same
-        // title, so try after a moment as well.
-        arriving = (target, place.name)
+        // place's own folder. For a few seconds Shiori puts it back whenever
+        // Finder clears it (selectionChanged), and once more after a moment
+        // in case a notification got lost.
+        arriving = (target, place.name, .now + .seconds(3))
+        selectSidebarRow(named: place.name)
         Task {
-            for delay in [400, 1000] {
-                try? await Task.sleep(for: .milliseconds(delay))
-                guard let arriving, arriving.target == target else { return }
-                selectSidebarRow(named: arriving.name)
-            }
-            if arriving?.target == target { arriving = nil }
+            try? await Task.sleep(for: .seconds(1))
+            guard let arriving, arriving.target == target else { return }
+            selectSidebarRow(named: arriving.name)
         }
     }
 
@@ -146,7 +160,10 @@ final class FinderWatcher {
             if Self.rowText(row) == name { matches.append((section, row)) }
         }
         let row = matches.count > 1 ? matches.first { $0.section > 0 }?.row : matches.first?.row
-        if let row { AXUIElementSetAttributeValue(row, kAXSelectedAttribute as CFString, kCFBooleanTrue) }
+        // Setting it again would only send another selection notification.
+        if let row, Self.value(row, kAXSelectedAttribute) as? Bool != true {
+            AXUIElementSetAttributeValue(row, kAXSelectedAttribute as CFString, kCFBooleanTrue)
+        }
     }
 
     private static func rowText(_ row: AXUIElement) -> String? {
