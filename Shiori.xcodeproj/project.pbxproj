@@ -16,6 +16,7 @@
 		31B74037B6636F1464A02432 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FE1D822FD4A5B5FE499BFD /* Components.swift */; };
 		3400C65A0A413F9B27C983E3 /* PlaceInstaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337F9737444EE28F4DE37875 /* PlaceInstaller.swift */; };
 		3C3BDF58B5C30EF233393006 /* FileProviderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294EF2350DEF49E124E29704 /* FileProviderExtension.swift */; };
+		4DD7D4D9BB87C95E1981E7C6 /* NetworkMounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E036463598B371FAF05B4959 /* NetworkMounter.swift */; };
 		5A38A0A008DA846033435170 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DF887D487982100B9CF65F /* Place.swift */; };
 		77636DA3BFA0A5D5E22E9543 /* FinderBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B39DF7A0ABB5D7502DF3D99 /* FinderBridge.swift */; };
 		7A91E44527DF6AD96D1377A0 /* PlaceConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8541AB575D7E398C1D30C8 /* PlaceConfig.swift */; };
@@ -91,6 +92,7 @@
 		DAE786DCB19261E3053D8C5B /* ShioriIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = wrapper.icon; path = ShioriIcon.icon; sourceTree = "<group>"; };
 		DAEDBA74F70F4703B0B6F403 /* PlaceLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceLibrary.swift; sourceTree = "<group>"; };
 		DD2B3922E0066EBEE7188878 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E036463598B371FAF05B4959 /* NetworkMounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMounter.swift; sourceTree = "<group>"; };
 		E206CCC0218EEF45259F6CEE /* FinderWatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderWatcher.swift; sourceTree = "<group>"; };
 		F0D2AAE368D9DA63F0959B16 /* PlacesWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesWindow.swift; sourceTree = "<group>"; };
 		F1BA21EBD4BB8E58D7C566AE /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				2734FEC8BD95BF7E41BBAEE9 /* CopyMonitor.swift */,
 				6B39DF7A0ABB5D7502DF3D99 /* FinderBridge.swift */,
 				E206CCC0218EEF45259F6CEE /* FinderWatcher.swift */,
+				E036463598B371FAF05B4959 /* NetworkMounter.swift */,
 				0ABB3B36B4F837F7DDF1C7C1 /* Permissions.swift */,
 				337F9737444EE28F4DE37875 /* PlaceInstaller.swift */,
 			);
@@ -371,6 +374,7 @@
 				77636DA3BFA0A5D5E22E9543 /* FinderBridge.swift in Sources */,
 				8FF3A03282CEC2C3A0C98561 /* FinderWatcher.swift in Sources */,
 				BF5E9625F182CA884C22C5E0 /* MenuContent.swift in Sources */,
+				4DD7D4D9BB87C95E1981E7C6 /* NetworkMounter.swift in Sources */,
 				A24B9034572A0E43CDD86A07 /* Permissions.swift in Sources */,
 				5A38A0A008DA846033435170 /* Place.swift in Sources */,
 				8B5C5CEE26CFBE4B48BAF1CE /* PlaceConfig.swift in Sources */,

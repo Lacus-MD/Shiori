@@ -11,7 +11,9 @@ import ApplicationServices
 @MainActor
 final class FinderWatcher {
     /// The sidebar folder (File Provider root) and real folder of each place.
-    var places: () -> [(name: String, root: String, target: URL)] = { [] }
+    var places: () -> [(id: UUID, name: String, root: String, target: URL)] = { [] }
+    /// The real folder, ready to show: connects a network share if needed.
+    var resolve: (UUID) async -> URL? = { _ in nil }
 
     private var observer: AXObserver?
     private var finderPID: pid_t = 0
@@ -132,8 +134,17 @@ final class FinderWatcher {
             lastShown = shown
             return
         }
-        FinderBridge.retargetFrontWindow(to: place.target)
         lastShown = target
+        if FileManager.default.fileExists(atPath: place.target.path(percentEncoded: false)) {
+            FinderBridge.retargetFrontWindow(to: place.target)
+        } else {
+            // The share is not connected: connect it, then move on.
+            Task {
+                guard let url = await resolve(place.id) else { return }
+                FinderBridge.retargetFrontWindow(to: url)
+                selectSidebarRow(named: place.name)
+            }
+        }
         // Finder drops the sidebar highlight when the window leaves the
         // place's own folder. For a few seconds Shiori puts it back whenever
         // Finder clears it (selectionChanged), and once more after a moment

@@ -33,7 +33,11 @@ Result: click *Filmek* and you are in `/Volumes/Filmek`, with *Filmek* still hig
 
 ### Copy progress in the menu bar
 
-Finder publishes a `Progress` for every file it copies (the pie on the file's icon). Shiori subscribes to each place's folder with `Progress.addSubscriber(forFileURL:)`. While something is being copied into a place, the menu bar icon becomes a filling pie, and the menu lists *Copying to …* per place with a progress bar. Verified with a 3 GB cross-volume copy by Finder. Copies within one APFS volume are clones and finish at once. Only items directly inside the place's folder are seen, as the API publishes per file URL or directory.
+Finder publishes a `Progress` for every file it copies (the pie on the file's icon). Shiori subscribes to each place's folder with `Progress.addSubscriber(forFileURL:)`. While something is being copied into a place, the menu bar icon becomes a filling pie, and the menu lists *Copying to …* per place with a progress bar. Verified with a 3 GB cross-volume copy by Finder. Copies within one APFS volume are clones and finish at once. A subscription only sees items directly inside one folder, so Shiori subscribes to the place's folder and its subfolders two levels deep (at most 400 folders), and lists them again every three minutes off the main thread (verified with a copy into `a/b`).
+
+### Network shares connect on demand
+
+When a place is added, Shiori remembers its share's remount URL (`volumeURLForRemounting`, e.g. `smb://user@192.168.0.237/Filmek`; no password). If the share is not mounted when you click the place, Shiori first connects it with NetFS, then moves on. This works from the sidebar, the menu and the editor's *Connect* button. The Keychain supplies the password, or macOS shows its own sign-in window. If the share lands at another mount point, the path is mapped onto it.
 
 ### Setup inside the app
 

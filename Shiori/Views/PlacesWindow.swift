@@ -26,7 +26,7 @@ struct PlacesWindow: View {
                         }
                         .tag(Selection.place(place.id))
                         .contextMenu {
-                            Button("Open Folder") { FinderBridge.open(place.url) }
+                            Button("Open Folder") { library.open(place) }
                             Button("Remove from Sidebar", role: .destructive) { confirmingRemoval = place }
                         }
                     }

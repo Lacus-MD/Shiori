@@ -105,7 +105,11 @@ final class PlaceLibrary {
         }
         watcher.places = { [weak self] in
             guard let self else { return [] }
-            return places.compactMap { place in roots[place.id].map { (place.name, $0, place.url) } }
+            return places.compactMap { place in roots[place.id].map { (place.id, place.name, $0, place.url) } }
+        }
+        watcher.resolve = { [weak self] id in
+            guard let self, let place = place(withID: id) else { return nil }
+            return await reachableURL(of: place)
         }
         updateWatcher()
         copies.watch(places)
@@ -207,7 +211,48 @@ final class PlaceLibrary {
         await installs[place.id]?.value
     }
 
+    // MARK: Network shares
+
+    /// Why the last attempt to connect a place's share failed.
+    private(set) var connectionErrors: [UUID: String] = [:]
+
+    /// The place's folder, connecting its network share first if needed.
+    func reachableURL(of place: Place) async -> URL? {
+        if place.isAvailable { return place.url }
+        guard let remount = place.remount else { return nil }
+        do {
+            let mountpoint = try await NetworkMounter.mount(remount)
+            connectionErrors[place.id] = nil
+            let path = place.path(onShareMountedAt: mountpoint)
+            return FileManager.default.fileExists(atPath: path) ? URL(filePath: path, directoryHint: .isDirectory) : nil
+        } catch {
+            connectionErrors[place.id] = error.localizedDescription
+            return nil
+        }
+    }
+
+    /// Opens the place's folder in Finder, connecting its share if needed.
+    func open(_ place: Place) {
+        Task {
+            if let url = await reachableURL(of: place) { FinderBridge.open(url) }
+        }
+    }
+
+    /// Places added before Shiori remembered shares learn theirs while the
+    /// share is mounted.
+    private func rememberShares() {
+        var changed = false
+        for index in places.indices where places[index].remount == nil && places[index].isAvailable {
+            if let remount = NetworkMounter.remount(for: places[index].url) {
+                places[index].remount = remount
+                changed = true
+            }
+        }
+        if changed { save() }
+    }
+
     func refreshAll() async {
+        rememberShares()
         await PlaceInstaller.removeOrphans(keeping: places)
         defer { checkSetup() }
         for place in places where states[place.id] != .working {

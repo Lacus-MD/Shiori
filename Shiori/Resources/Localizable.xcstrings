@@ -151,12 +151,32 @@
         }
       }
     },
+    "Connect": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Csatlakozás"
+          }
+        }
+      }
+    },
     "Copying to %@": {
       "localizations": {
         "hu": {
           "stringUnit": {
             "state": "translated",
             "value": "Másolás ide: %@"
+          }
+        }
+      }
+    },
+    "Could not connect to the share (error %d).": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nem sikerült csatlakozni a megosztáshoz (hiba: %d)."
           }
         }
       }
@@ -411,12 +431,22 @@
         }
       }
     },
-    "Not available right now. If it is a network share, connect to it first.": {
+    "Not available right now.": {
       "localizations": {
         "hu": {
           "stringUnit": {
             "state": "translated",
-            "value": "Most nem érhető el. Ha hálózati megosztás, előbb csatlakozz hozzá."
+            "value": "Most nem érhető el."
+          }
+        }
+      }
+    },
+    "Not connected · click to connect": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nincs csatlakoztatva · kattints a csatlakozáshoz"
           }
         }
       }
@@ -447,6 +477,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Kattintások észlelése az oldalsávban"
+          }
+        }
+      }
+    },
+    "On a network share; Shiori connects it when you click the place.": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hálózati megosztáson van; a Shiori csatlakoztatja, amikor a helyre kattintasz."
           }
         }
       }
@@ -767,6 +807,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "A helyek akkor is az oldalsávban maradnak, ha a Shiori nem fut. Csak a módosításukhoz és az ugráshoz kell futnia."
+          }
+        }
+      }
+    },
+    "The share is not connected.": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A megosztás nincs csatlakoztatva."
           }
         }
       }

@@ -33,7 +33,7 @@ struct MenuContent: View {
             } else {
                 VStack(spacing: 2) {
                     ForEach(library.places) { place in
-                        MenuPlaceRow(place: place, state: library.state(of: place))
+                        MenuPlaceRow(place: place, state: library.state(of: place)) { library.open(place) }
                     }
                 }
                 .padding(.horizontal, 6)
@@ -102,18 +102,17 @@ struct MenuContent: View {
 private struct MenuPlaceRow: View {
     let place: Place
     let state: PlaceState
+    let open: () -> Void
     @State private var hovering = false
 
     var body: some View {
-        Button {
-            FinderBridge.open(place.url)
-        } label: {
+        Button(action: open) {
             HStack(spacing: 10) {
                 PlaceIcon(symbol: place.symbol, tint: place.tint, size: 26)
                 VStack(alignment: .leading, spacing: 1) {
                     Text(place.name)
                         .lineLimit(1)
-                    Text(place.path)
+                    Text(place.isAvailable || place.remount == nil ? place.path : String(localized: "Not connected · click to connect"))
                         .font(.caption)
                         .foregroundStyle(.secondary)
                         .lineLimit(1)

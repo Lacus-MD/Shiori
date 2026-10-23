@@ -46,13 +46,28 @@ struct PlaceEditor: View {
                     Button("Choose…") {
                         if let url = FolderPicker.choose(startingAt: draft.url.deletingLastPathComponent()) {
                             draft.path = url.path(percentEncoded: false)
+                            draft.remount = NetworkMounter.remount(for: url)
                         }
                     }
                 }
-                if !FileManager.default.fileExists(atPath: draft.path) {
-                    Label("Not available right now. If it is a network share, connect to it first.", systemImage: "wifi.exclamationmark")
-                        .font(.callout)
-                        .foregroundStyle(.orange)
+                if !draft.isAvailable {
+                    HStack {
+                        Label(draft.remount == nil ? "Not available right now." : "The share is not connected.", systemImage: "wifi.exclamationmark")
+                            .font(.callout)
+                            .foregroundStyle(.orange)
+                        Spacer()
+                        if draft.remount != nil {
+                            Button("Connect") { library.open(saved) }
+                        }
+                    }
+                    if let error = library.connectionErrors[saved.id] {
+                        Text(error).font(.caption).foregroundStyle(.red)
+                    }
+                } else if let remount = draft.remount {
+                    Label("On a network share; Shiori connects it when you click the place.", systemImage: "network")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                        .help(remount.url)
                 }
             }
 
@@ -129,7 +144,7 @@ private struct PlaceStatusView: View {
                 } else if state == .ready {
                     Button("Show in Finder") { Task { await library.showSidebarEntry(of: place) } }
                 }
-                Button("Open Folder") { FinderBridge.open(place.url) }
+                Button("Open Folder") { library.open(place) }
                 if case .failed = state {
                     Button("Try Again") { Task { await library.install(place) } }
                 }
