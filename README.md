@@ -37,7 +37,7 @@ Finder publishes a `Progress` for every file it copies (the pie on the file's ic
 
 ### Network shares connect on demand
 
-When a place is added, Shiori remembers its share's remount URL (`volumeURLForRemounting`, e.g. `smb://user@192.168.0.237/Filmek`; no password). If the share is not mounted when you click the place, Shiori first connects it with NetFS, then moves on. This works from the sidebar, the menu and the editor's *Connect* button. The Keychain supplies the password, or macOS shows its own sign-in window. If the share lands at another mount point, the path is mapped onto it.
+When a place is added, Shiori remembers its share's remount URL (`volumeURLForRemounting`, e.g. `smb://user@nas.local/Movies`; no password). If the share is not mounted when you click the place, Shiori first connects it with NetFS, then moves on. This works from the sidebar, the menu and the editor's *Connect* button. The Keychain supplies the password, or macOS shows its own sign-in window. If the share lands at another mount point, the path is mapped onto it.
 
 ### Setup inside the app
 
@@ -100,3 +100,7 @@ Targets:
 Debug-only launch arguments for checks from the shell: `-ShioriAddFolder <path>`, `-ShioriEditFirst "Name|symbol"`, `-ShioriShowSetup YES`.
 
 Accessibility and Automation consents belong to the signed app at its path. Move it to `/Applications` before relying on it day to day.
+
+## License
+
+GPL-3.0; see [LICENSE](LICENSE).
