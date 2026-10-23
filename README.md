@@ -1,5 +1,7 @@
 # Shiori
 
+<img src="Design/icon-macos.png" width="128" alt="Shiori icon">
+
 A small menu bar app that makes the Finder sidebar yours. Pick a folder or a mounted network share, give it a **name** and an **SF Symbol icon**, and it shows up in the Finder sidebar under *Locations* as its own entry. It has no alias arrow and no generic folder glyph.
 
 *Shiori* (栞) is Japanese for *bookmark*, the ribbon that keeps your place in a book. The UI is in English with a full Hungarian translation (String Catalogs).
