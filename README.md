@@ -74,6 +74,10 @@ Everything macOS must allow is a checklist on the **Setup** page. The menu bar s
 - After enabling, the root lists links to the real items. With the jump on, a sidebar click lands in the real folder with the row still highlighted, and Back stays on the place.
 - Rename "Shiori-teszt" → "Teszt Kalapács" with `hammer`: the place stays enabled, and the new name and glyph show after a Finder restart.
 
+## Icon
+
+`Shiori/Resources/ShioriIcon.icon` is an Icon Composer document: three sidebar rows in washi cream on an ink background, the middle one lit, and a vermilion bookmark ribbon (栞) hanging across it. `Design/make_icon.py` draws its layers (`--preview` writes `Design/icon-preview.png`). It also covers the dark and tinted appearances (glass in tinted). `actool` derives the flat renditions and `ShioriIcon.icns` from it.
+
 ## Building
 
 ```bash

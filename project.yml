@@ -52,6 +52,9 @@ targets:
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: hu.lacus.shiori
+        # The Icon Composer document (layers drawn by Design/make_icon.py);
+        # actool also derives the flat renditions and the .icns from it.
+        ASSETCATALOG_COMPILER_APPICON_NAME: ShioriIcon
 
   ShioriPlaceHost:
     type: application

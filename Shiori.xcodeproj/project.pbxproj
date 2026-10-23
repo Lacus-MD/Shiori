@@ -30,6 +30,7 @@
 		B9B816664115D4091B046A2F /* PlacesWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D2AAE368D9DA63F0959B16 /* PlacesWindow.swift */; };
 		BF5E9625F182CA884C22C5E0 /* MenuContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52117F55938155023824CADF /* MenuContent.swift */; };
 		F31A4BA9000ECD4F93DF30CC /* PlaceEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3767F94AEF8FD8C7E4A15A06 /* PlaceEditor.swift */; };
+		FA23514D2DCE9063BAB7831B /* ShioriIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = DAE786DCB19261E3053D8C5B /* ShioriIcon.icon */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		B127EAFF71A1AD793A0990BD /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		BBE64BB116CC2C026B131564 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C51CCF6D2300CC2FA3F2E035 /* ShioriFileProvider.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShioriFileProvider.entitlements; sourceTree = "<group>"; };
+		DAE786DCB19261E3053D8C5B /* ShioriIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = wrapper.icon; path = ShioriIcon.icon; sourceTree = "<group>"; };
 		DAEDBA74F70F4703B0B6F403 /* PlaceLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceLibrary.swift; sourceTree = "<group>"; };
 		DD2B3922E0066EBEE7188878 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E206CCC0218EEF45259F6CEE /* FinderWatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderWatcher.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 			children = (
 				F1BA21EBD4BB8E58D7C566AE /* InfoPlist.xcstrings */,
 				114562E6F912CEDCD9E72195 /* Localizable.xcstrings */,
+				DAE786DCB19261E3053D8C5B /* ShioriIcon.icon */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 			files = (
 				1A696EF4490ADC00426E1158 /* InfoPlist.xcstrings in Resources */,
 				23E8B509F69E3FE539F4464A /* Localizable.xcstrings in Resources */,
+				FA23514D2DCE9063BAB7831B /* ShioriIcon.icon in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,7 +404,7 @@
 		19320DF2F41A1F08C4608D8C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = ShioriIcon;
 				CODE_SIGN_ENTITLEMENTS = Shiori/Shiori.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Shiori/Info.plist;
@@ -416,7 +420,7 @@
 		4013A8594F50F2A55A13D04E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = ShioriIcon;
 				CODE_SIGN_ENTITLEMENTS = Shiori/Shiori.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Shiori/Info.plist;
