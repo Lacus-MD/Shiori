@@ -23,6 +23,9 @@ final class PlaceLibrary {
 
     private let watcher = FinderWatcher()
 
+    /// Copies into the places' folders, for the menu bar pie.
+    let copies = CopyMonitor()
+
     var startsAtLogin: Bool {
         get { SMAppService.mainApp.status == .enabled }
         set {
@@ -49,7 +52,7 @@ final class PlaceLibrary {
     private(set) var canWatchFinder = Permissions.canWatchFinder
     private(set) var finderAutomation = Permissions.Automation.notAsked
 
-    var placesWaitingToBeEnabled: [Place] { places.filter { states[$0.id] == .needsEnabling } }
+    var placesWaitingToBeEnabled: [Place] { places.filter { state(of: $0) == .needsEnabling } }
 
     /// Steps the user still has to take in macOS for everything to work.
     var pendingSetupCount: Int {
@@ -105,6 +108,7 @@ final class PlaceLibrary {
             return places.compactMap { place in roots[place.id].map { (place.name, $0, place.url) } }
         }
         updateWatcher()
+        copies.watch(places)
         Task { await refreshAll() }
     }
 
@@ -121,7 +125,16 @@ final class PlaceLibrary {
 
     var isWatchingFinder: Bool { watcher.isRunning }
 
-    func state(of place: Place) -> PlaceState { states[place.id] ?? .unknown }
+    /// A place macOS has not enabled still sits in the sidebar, and with the
+    /// jump working a click goes straight past it to the real folder, so
+    /// there is nothing left for the user to do.
+    func state(of place: Place) -> PlaceState {
+        let state = states[place.id] ?? .unknown
+        return state == .needsEnabling && jumpWorks ? .ready : state
+    }
+
+    /// Clicks in the sidebar land in the real folder.
+    var jumpWorks: Bool { jumpToTarget && canWatchFinder && finderAutomation == .granted }
 
     func place(withID id: UUID) -> Place? { places.first { $0.id == id } }
 
@@ -239,5 +252,6 @@ final class PlaceLibrary {
         } catch {
             NSLog("Shiori: could not save places: \(error)")
         }
+        copies.watch(places)
     }
 }

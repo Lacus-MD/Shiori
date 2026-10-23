@@ -31,11 +31,15 @@ With **"Clicking a place jumps straight to the real folder"** on (Setup page), i
 
 Result: click *Filmek* and you are in `/Volumes/Filmek`, with *Filmek* still highlighted. Back from there returns to the place's own view instead of being undone.
 
+### Copy progress in the menu bar
+
+Finder publishes a `Progress` for every file it copies (the pie on the file's icon). Shiori subscribes to each place's folder with `Progress.addSubscriber(forFileURL:)`. While something is being copied into a place, the menu bar icon becomes a filling pie, and the menu lists *Copying to …* per place with a progress bar. Verified with a 3 GB cross-volume copy by Finder. Copies within one APFS volume are clones and finish at once. Only items directly inside the place's folder are seen, as the API publishes per file URL or directory.
+
 ### Setup inside the app
 
 Everything macOS must allow is a checklist on the **Setup** page. The menu bar shows *Finish Setup (n)…* while something is missing. Each step has a button to the right prompt or pane, and the status updates on its own (polled every 3 s only while something is pending):
 
-- **Every new place:** *Enable in Finder* opens the place, where Finder shows its *Enable* bar. The same switches are in System Settings › General › Login Items & Extensions.
+- **Every new place:** only without the jump. A place macOS has not enabled still sits in the sidebar, and the jump goes straight past its root, so with the jump working Shiori counts the place as done (verified with *Appok*). Without the jump, *Enable in Finder* opens the place, where Finder shows its *Enable* bar.
 - **Jump (optional):**
   - *Notice clicks in the sidebar*: Accessibility. On macOS 27 the pane is called *Privacy & Security › Device Control and Data Access* (Hungarian: *Eszközvezérlés és adathozzáférés*).
   - *Move the Finder window*: Automation › Finder. It is asked up front with `AEDeterminePermissionToAutomateTarget`.

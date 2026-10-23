@@ -10,36 +10,6 @@ struct SetupView: View {
         @Bindable var library = library
         Form {
             Section {
-                if library.places.isEmpty {
-                    Text("Add a place first; each one then appears here.")
-                        .foregroundStyle(.secondary)
-                }
-                ForEach(library.places) { place in
-                    let waiting = library.state(of: place) == .needsEnabling
-                    SetupStep(
-                        done: library.state(of: place) == .ready,
-                        title: Text(place.name),
-                        detail: waiting ? Text("Click Enable at the top of the Finder window that opens.") : nil
-                    ) {
-                        if waiting {
-                            Button("Enable in Finder") { Task { await library.showSidebarEntry(of: place) } }
-                        }
-                    }
-                }
-            } header: {
-                Text("Places in the Sidebar")
-            } footer: {
-                HStack(alignment: .firstTextBaseline) {
-                    Text("macOS asks once for every new place. The same switches are in System Settings › General › Login Items & Extensions.")
-                    Spacer()
-                    Button("Open System Settings") { Permissions.openFileProviderSettings() }
-                        .controlSize(.small)
-                }
-                .font(.caption)
-                .foregroundStyle(.secondary)
-            }
-
-            Section {
                 Toggle("Clicking a place jumps straight to the real folder", isOn: $library.jumpToTarget)
                 if library.jumpToTarget {
                     SetupStep(
@@ -68,6 +38,36 @@ struct SetupView: View {
                 Text("Optional. The Finder window moves on to the real folder or share, so you work there as usual. Without it, a place shows the folder’s items as links.")
                     .font(.caption)
                     .foregroundStyle(.secondary)
+            }
+
+            Section {
+                if library.places.isEmpty {
+                    Text("Add a place first; each one then appears here.")
+                        .foregroundStyle(.secondary)
+                }
+                ForEach(library.places) { place in
+                    let waiting = library.state(of: place) == .needsEnabling
+                    SetupStep(
+                        done: library.state(of: place) == .ready,
+                        title: Text(place.name),
+                        detail: waiting ? Text("Click Enable at the top of the Finder window that opens.") : nil
+                    ) {
+                        if waiting {
+                            Button("Enable in Finder") { Task { await library.showSidebarEntry(of: place) } }
+                        }
+                    }
+                }
+            } header: {
+                Text("Places in the Sidebar")
+            } footer: {
+                HStack(alignment: .firstTextBaseline) {
+                    Text("Not needed while clicks jump to the real folder. Otherwise macOS asks once for every new place; the same switches are in System Settings › General › Login Items & Extensions.")
+                    Spacer()
+                    Button("Open System Settings") { Permissions.openFileProviderSettings() }
+                        .controlSize(.small)
+                }
+                .font(.caption)
+                .foregroundStyle(.secondary)
             }
 
             Section {

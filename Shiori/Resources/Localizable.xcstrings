@@ -151,6 +151,16 @@
         }
       }
     },
+    "Copying to %@": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Másolás ide: %@"
+          }
+        }
+      }
+    },
     "Edit Places…": {
       "localizations": {
         "hu": {
@@ -417,6 +427,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Még nincs az oldalsávban."
+          }
+        }
+      }
+    },
+    "Not needed while clicks jump to the real folder. Otherwise macOS asks once for every new place; the same switches are in System Settings › General › Login Items & Extensions.": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nem kell, amíg a kattintás a valódi mappára ugrik. Különben a macOS minden új helynél egyszer kérdez; ugyanezek a kapcsolók a Rendszerbeállítások › Általános › Indítóelemek és bővítmények alatt is megvannak."
           }
         }
       }
@@ -841,22 +861,22 @@
         }
       }
     },
+    "^[%lld item](inflect: true)": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld elem"
+          }
+        }
+      }
+    },
     "iCloud Drive": {
       "localizations": {
         "hu": {
           "stringUnit": {
             "state": "translated",
             "value": "iCloud Drive"
-          }
-        }
-      }
-    },
-    "macOS asks once for every new place. The same switches are in System Settings › General › Login Items & Extensions.": {
-      "localizations": {
-        "hu": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "A macOS minden új helynél egyszer kérdez. Ugyanezek a kapcsolók a Rendszerbeállítások › Általános › Indítóelemek és bővítmények alatt is megvannak."
           }
         }
       }

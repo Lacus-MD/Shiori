@@ -55,7 +55,13 @@ private struct MenuBarLabel: View {
     @Environment(\.openWindow) private var openWindow
 
     var body: some View {
-        Image(systemName: "bookmark.fill")
+        Group {
+            if let fraction = library.copies.overallFraction {
+                Image(nsImage: ProgressPie.image(fraction))
+            } else {
+                Image(systemName: "bookmark.fill")
+            }
+        }
             .onChange(of: library.requestedPage) { _, page in
                 guard page != nil else { return }
                 openWindow(id: PlacesWindow.id)

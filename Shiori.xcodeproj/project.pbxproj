@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1A696EF4490ADC00426E1158 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F1BA21EBD4BB8E58D7C566AE /* InfoPlist.xcstrings */; };
+		1E39583A2BC0A7D098B46A59 /* CopyMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2734FEC8BD95BF7E41BBAEE9 /* CopyMonitor.swift */; };
 		208A2844BD68518F545F642A /* ShioriFileProvider.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 6DA7322802A83F2C48DAED71 /* ShioriFileProvider.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		23E8B509F69E3FE539F4464A /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 114562E6F912CEDCD9E72195 /* Localizable.xcstrings */; };
 		2442C1763A9DD5D4F5016962 /* SidebarPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6533578339244EA88FD7FB18 /* SidebarPreview.swift */; };
@@ -69,6 +70,7 @@
 		0ABB3B36B4F837F7DDF1C7C1 /* Permissions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Permissions.swift; sourceTree = "<group>"; };
 		0D8541AB575D7E398C1D30C8 /* PlaceConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceConfig.swift; sourceTree = "<group>"; };
 		114562E6F912CEDCD9E72195 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		2734FEC8BD95BF7E41BBAEE9 /* CopyMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyMonitor.swift; sourceTree = "<group>"; };
 		294EF2350DEF49E124E29704 /* FileProviderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileProviderExtension.swift; sourceTree = "<group>"; };
 		337F9737444EE28F4DE37875 /* PlaceInstaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceInstaller.swift; sourceTree = "<group>"; };
 		3767F94AEF8FD8C7E4A15A06 /* PlaceEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceEditor.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 		9CF6F9D8F16154316D60735A /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				2734FEC8BD95BF7E41BBAEE9 /* CopyMonitor.swift */,
 				6B39DF7A0ABB5D7502DF3D99 /* FinderBridge.swift */,
 				E206CCC0218EEF45259F6CEE /* FinderWatcher.swift */,
 				0ABB3B36B4F837F7DDF1C7C1 /* Permissions.swift */,
@@ -360,6 +363,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31B74037B6636F1464A02432 /* Components.swift in Sources */,
+				1E39583A2BC0A7D098B46A59 /* CopyMonitor.swift in Sources */,
 				77636DA3BFA0A5D5E22E9543 /* FinderBridge.swift in Sources */,
 				8FF3A03282CEC2C3A0C98561 /* FinderWatcher.swift in Sources */,
 				BF5E9625F182CA884C22C5E0 /* MenuContent.swift in Sources */,

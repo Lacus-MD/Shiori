@@ -39,6 +39,32 @@ struct MenuContent: View {
                 .padding(.horizontal, 6)
             }
 
+            if !library.copies.activities.isEmpty {
+                Divider().padding(.vertical, 6)
+                VStack(alignment: .leading, spacing: 8) {
+                    ForEach(library.copies.activities) { activity in
+                        VStack(alignment: .leading, spacing: 3) {
+                            HStack {
+                                Text("Copying to \(activity.name)")
+                                    .lineLimit(1)
+                                Spacer()
+                                Text(activity.fraction, format: .percent.precision(.fractionLength(0)))
+                                    .monospacedDigit()
+                                    .foregroundStyle(.secondary)
+                            }
+                            .font(.callout)
+                            ProgressView(value: activity.fraction)
+                                .progressViewStyle(.linear)
+                            Text("^[\(activity.files) item](inflect: true)")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+                }
+                .padding(.horizontal, 14)
+                .animation(.snappy, value: library.copies.activities)
+            }
+
             Divider().padding(.vertical, 6)
 
             VStack(alignment: .leading, spacing: 2) {
