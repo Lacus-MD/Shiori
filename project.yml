@@ -1,0 +1,105 @@
+name: Shiori
+
+options:
+  bundleIdPrefix: hu.lacus
+  developmentLanguage: en
+  createIntermediateGroups: true
+  deploymentTarget:
+    macOS: "26.0"
+
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    SWIFT_STRICT_CONCURRENCY: complete
+    SWIFT_EMIT_LOC_STRINGS: YES
+    LOCALIZATION_PREFERS_STRING_CATALOGS: YES
+    MARKETING_VERSION: "0.1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    DEVELOPMENT_TEAM: YGU3DVQ6S8
+    CODE_SIGN_STYLE: Automatic
+    ENABLE_HARDENED_RUNTIME: YES
+
+targets:
+  Shiori:
+    type: application
+    platform: macOS
+    sources:
+      - path: Shiori
+      - path: Shared
+    dependencies:
+      - target: ShioriPlaceHost
+        embed: false
+    postBuildScripts:
+      - name: Embed place template
+        script: |
+          rm -rf "$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/PlaceTemplate.app"
+          ditto "$BUILT_PRODUCTS_DIR/ShioriPlaceHost.app" "$TARGET_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH/PlaceTemplate.app"
+        basedOnDependencyAnalysis: false
+    info:
+      path: Shiori/Info.plist
+      properties:
+        CFBundleDisplayName: Shiori
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        LSApplicationCategoryType: public.app-category.utilities
+        LSUIElement: true
+        CFBundleLocalizations: [en, hu]
+        NSAppleEventsUsageDescription: Shiori points the Finder window at the real folder when you click a place in the sidebar.
+    entitlements:
+      path: Shiori/Shiori.entitlements
+      properties:
+        com.apple.security.automation.apple-events: true
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: hu.lacus.shiori
+
+  ShioriPlaceHost:
+    type: application
+    platform: macOS
+    sources:
+      - path: ShioriPlaceHost
+      - path: Shared/PlaceConfig.swift
+    dependencies:
+      - target: ShioriFileProvider
+    info:
+      path: ShioriPlaceHost/Info.plist
+      properties:
+        CFBundleDisplayName: Place
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        LSBackgroundOnly: true
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: hu.lacus.shiori.place
+        SKIP_INSTALL: YES
+        # The template is copied and re-signed per place; keep it one binary.
+        ENABLE_DEBUG_DYLIB: NO
+
+  ShioriFileProvider:
+    type: app-extension
+    platform: macOS
+    sources:
+      - path: ShioriFileProvider
+      - path: Shared/PlaceConfig.swift
+    info:
+      path: ShioriFileProvider/Info.plist
+      properties:
+        CFBundleDisplayName: Shiori
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        CFBundleIcons:
+          CFBundlePrimaryIcon:
+            CFBundleSymbolName: folder.fill
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.fileprovider-nonui
+          NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).FileProviderExtension
+          NSExtensionFileProviderSupportsEnumeration: true
+    entitlements:
+      path: ShioriFileProvider/ShioriFileProvider.entitlements
+      properties:
+        com.apple.security.app-sandbox: true
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: hu.lacus.shiori.place.file-provider
+        SKIP_INSTALL: YES
+        ENABLE_DEBUG_DYLIB: NO

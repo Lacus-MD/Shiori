@@ -1,0 +1,866 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "%@ failed: %@": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ sikertelen: %2$@"
+          }
+        }
+      }
+    },
+    "Add": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hozzáadás"
+          }
+        }
+      }
+    },
+    "Add Folder…": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mappa hozzáadása…"
+          }
+        }
+      }
+    },
+    "Add a folder": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mappa hozzáadása"
+          }
+        }
+      }
+    },
+    "Add a folder or a network share, give it a name and an icon, and it appears in the Finder sidebar.": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adj hozzá egy mappát vagy hálózati megosztást, adj neki nevet és ikont, és megjelenik a Finder oldalsávjában."
+          }
+        }
+      }
+    },
+    "Add a place first; each one then appears here.": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Előbb adj hozzá egy helyet; mindegyik itt jelenik meg."
+          }
+        }
+      }
+    },
+    "Allow…": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Engedélyezés…"
+          }
+        }
+      }
+    },
+    "Blue": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kék"
+          }
+        }
+      }
+    },
+    "Check again": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Újraellenőrzés"
+          }
+        }
+      }
+    },
+    "Choose": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kiválasztás"
+          }
+        }
+      }
+    },
+    "Choose a folder or a mounted network share for the Finder sidebar.": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Válassz egy mappát vagy csatlakoztatott hálózati megosztást a Finder oldalsávjába."
+          }
+        }
+      }
+    },
+    "Choose…": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kiválasztás…"
+          }
+        }
+      }
+    },
+    "Click Enable at the top of the Finder window that opens.": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kattints az Engedélyezés gombra a megnyíló Finder-ablak tetején."
+          }
+        }
+      }
+    },
+    "Clicking a place jumps straight to the real folder": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kattintásra egyenesen a valódi mappára ugrik"
+          }
+        }
+      }
+    },
+    "Color": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Szín"
+          }
+        }
+      }
+    },
+    "Edit Places…": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Helyek szerkesztése…"
+          }
+        }
+      }
+    },
+    "Enable in Finder": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Engedélyezés a Finderben"
+          }
+        }
+      }
+    },
+    "Finder shows new names and icons after it starts again.": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Az új neveket és ikonokat a Finder újraindítás után mutatja."
+          }
+        }
+      }
+    },
+    "Finish Setup (%lld)…": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Beállítás befejezése (%lld)…"
+          }
+        }
+      }
+    },
+    "Folder": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mappa"
+          }
+        }
+      }
+    },
+    "Folders & Drives": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mappák és meghajtók"
+          }
+        }
+      }
+    },
+    "General": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Általános"
+          }
+        }
+      }
+    },
+    "Graphite": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Grafit"
+          }
+        }
+      }
+    },
+    "Green": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zöld"
+          }
+        }
+      }
+    },
+    "Health": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Egészség"
+          }
+        }
+      }
+    },
+    "Icon": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ikon"
+          }
+        }
+      }
+    },
+    "In Finder": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A Finderben"
+          }
+        }
+      }
+    },
+    "In the Finder sidebar under Locations.": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A Finder oldalsávjában, a Helyek alatt."
+          }
+        }
+      }
+    },
+    "In the sidebar and waiting for you. macOS asks once for every new place.": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Az oldalsávban van, és rád vár. A macOS minden új helynél egyszer kérdez."
+          }
+        }
+      }
+    },
+    "Life": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Élet"
+          }
+        }
+      }
+    },
+    "Locations": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Helyek"
+          }
+        }
+      }
+    },
+    "Make the Finder sidebar yours": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Legyen a tiéd a Finder oldalsávja"
+          }
+        }
+      }
+    },
+    "Media": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Média"
+          }
+        }
+      }
+    },
+    "Mounted network shares": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Csatlakoztatott hálózati megosztások"
+          }
+        }
+      }
+    },
+    "Move the Finder window": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A Finder-ablak áthelyezése"
+          }
+        }
+      }
+    },
+    "Name": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Név"
+          }
+        }
+      }
+    },
+    "Name in the sidebar": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Név az oldalsávban"
+          }
+        }
+      }
+    },
+    "Nature": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Természet"
+          }
+        }
+      }
+    },
+    "Network": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hálózat"
+          }
+        }
+      }
+    },
+    "No symbol named “%@”. The SF Symbols app lists every name.": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nincs „%@” nevű szimbólum. Az SF Symbols app minden nevet felsorol."
+          }
+        }
+      }
+    },
+    "Not available right now. If it is a network share, connect to it first.": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Most nem érhető el. Ha hálózati megosztás, előbb csatlakozz hozzá."
+          }
+        }
+      }
+    },
+    "Not in the sidebar yet.": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Még nincs az oldalsávban."
+          }
+        }
+      }
+    },
+    "Notice clicks in the sidebar": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kattintások észlelése az oldalsávban"
+          }
+        }
+      }
+    },
+    "Open Folder": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mappa megnyitása"
+          }
+        }
+      }
+    },
+    "Open Shiori": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Shiori megnyitása"
+          }
+        }
+      }
+    },
+    "Open Shiori at login": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A Shiori indítása bejelentkezéskor"
+          }
+        }
+      }
+    },
+    "Open System Settings": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rendszerbeállítások megnyitása"
+          }
+        }
+      }
+    },
+    "Optional. The Finder window moves on to the real folder or share, so you work there as usual. Without it, a place shows the folder’s items as links.": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nem kötelező. A Finder-ablak továbblép a valódi mappára vagy megosztásra, és ott a szokásos módon dolgozhatsz. Nélküle a hely a mappa elemeit hivatkozásként mutatja."
+          }
+        }
+      }
+    },
+    "Orange": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Narancs"
+          }
+        }
+      }
+    },
+    "Pick a folder or a network share, give it a name and an icon, and Shiori puts it in the Finder sidebar — no alias arrow, no generic folder.": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Válassz egy mappát vagy hálózati megosztást, adj neki nevet és ikont, és a Shiori beteszi a Finder oldalsávjába – álnévnyíl és általános mappaikon nélkül."
+          }
+        }
+      }
+    },
+    "Pink": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rózsaszín"
+          }
+        }
+      }
+    },
+    "Places in the Sidebar": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Helyek az oldalsávban"
+          }
+        }
+      }
+    },
+    "Purple": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lila"
+          }
+        }
+      }
+    },
+    "Quit Shiori": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kilépés a Shioriból"
+          }
+        }
+      }
+    },
+    "Red": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Piros"
+          }
+        }
+      }
+    },
+    "Remove": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eltávolítás"
+          }
+        }
+      }
+    },
+    "Remove from Sidebar": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eltávolítás az oldalsávból"
+          }
+        }
+      }
+    },
+    "Remove the selected place": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A kijelölt hely eltávolítása"
+          }
+        }
+      }
+    },
+    "Remove “%@” from the Finder sidebar?": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eltávolítod a(z) „%@” helyet a Finder oldalsávjából?"
+          }
+        }
+      }
+    },
+    "Restart": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Újraindítás"
+          }
+        }
+      }
+    },
+    "Restart Finder": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A Finder újraindítása"
+          }
+        }
+      }
+    },
+    "Restart Finder to Show Changes": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A Finder újraindítása a változásokhoz"
+          }
+        }
+      }
+    },
+    "Revert": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Visszaállítás"
+          }
+        }
+      }
+    },
+    "Save to Sidebar": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mentés az oldalsávba"
+          }
+        }
+      }
+    },
+    "Search symbols, or type any SF Symbol name": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Keresés, vagy írd be bármely SF Symbol nevét"
+          }
+        }
+      }
+    },
+    "Setup": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Beállítás"
+          }
+        }
+      }
+    },
+    "Shiori": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Shiori"
+          }
+        }
+      }
+    },
+    "Shiori’s place template is missing. Reinstall Shiori.": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hiányzik a Shiori helysablonja. Telepítsd újra a Shiorit."
+          }
+        }
+      }
+    },
+    "Show in Finder": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Megjelenítés a Finderben"
+          }
+        }
+      }
+    },
+    "Sidebar Clicks": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kattintás az oldalsávban"
+          }
+        }
+      }
+    },
+    "Sidebar Places": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Helyek az oldalsávban"
+          }
+        }
+      }
+    },
+    "Symbols": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jelek"
+          }
+        }
+      }
+    },
+    "Teal": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zöldeskék"
+          }
+        }
+      }
+    },
+    "The folder itself and everything in it stay where they are.": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Maga a mappa és a tartalma a helyén marad."
+          }
+        }
+      }
+    },
+    "The places stay in the sidebar while Shiori is closed. It only needs to run to change them and for the jump.": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A helyek akkor is az oldalsávban maradnak, ha a Shiori nem fut. Csak a módosításukhoz és az ugráshoz kell futnia."
+          }
+        }
+      }
+    },
+    "This is how Finder shows it: your name and icon under Locations, without an alias arrow.": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Így mutatja a Finder: a te neveddel és ikonoddal a Helyek alatt, álnévnyíl nélkül."
+          }
+        }
+      }
+    },
+    "Try Again": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Újra"
+          }
+        }
+      }
+    },
+    "Turn on Shiori under Privacy & Security › Device Control and Data Access.": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kapcsold be a Shiorit itt: Adatvédelem és biztonság › Eszközvezérlés és adathozzáférés."
+          }
+        }
+      }
+    },
+    "Turned off. Turn on Finder under Shiori in Privacy & Security › Automation.": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ki van kapcsolva. Kapcsold be a Findert a Shiori alatt itt: Adatvédelem és biztonság › Automatizálás."
+          }
+        }
+      }
+    },
+    "Updating the sidebar…": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Az oldalsáv frissítése…"
+          }
+        }
+      }
+    },
+    "Used in Shiori’s menu. Finder draws every sidebar icon in its own gray.": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A Shiori menüjében látszik. A Finder minden oldalsávikont a saját szürkéjével rajzol."
+          }
+        }
+      }
+    },
+    "Waiting to be enabled in Finder": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Engedélyezésre vár a Finderben"
+          }
+        }
+      }
+    },
+    "Work": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Munka"
+          }
+        }
+      }
+    },
+    "Yellow": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sárga"
+          }
+        }
+      }
+    },
+    "iCloud Drive": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iCloud Drive"
+          }
+        }
+      }
+    },
+    "macOS asks once for every new place. The same switches are in System Settings › General › Login Items & Extensions.": {
+      "localizations": {
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A macOS minden új helynél egyszer kérdez. Ugyanezek a kapcsolók a Rendszerbeállítások › Általános › Indítóelemek és bővítmények alatt is megvannak."
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}
